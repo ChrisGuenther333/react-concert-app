@@ -1,6 +1,7 @@
-export function TableLeft() {
+export default function ConcertList() {
   return (
-    <div className="bg-zinc-500">
+    <div className="w-1/3 bg-zinc-500">
+      <h1>Concert List</h1>
       <div id="buttons" className="flex">
         <button id="add-concert">+ Add Concert</button>
         <button id="search-concert">Search</button>

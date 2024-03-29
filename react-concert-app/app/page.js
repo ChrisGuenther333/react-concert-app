@@ -1,15 +1,14 @@
-import Image from "next/image";
-import TableLeft from "./components/TableLeft.jsx";
+import NavBar from "./Components/Page Layout/NavBar.jsx";
+import ConcertList from "./Components/Page Layout/ConcertList.jsx";
+import DisplayedConcert from "./Components/Page Layout/DisplayedConcert.jsx";
 
 export default function Home() {
   return (
     <div>
-      <h1>Chris Git Test 2</h1>
-      <p>Very nice</p>
-      <div className="flex justify-evenly">
-      <div>**table here**</div>
-      <div>**table here**</div>
-
+      <NavBar/>
+      <div className="flex">
+        <ConcertList/>
+        <DisplayedConcert/>
       </div>
     </div>
   );
