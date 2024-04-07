@@ -1,5 +1,5 @@
 import AddConcertBtn from "../Elements/Buttons";
-import { SearchConcert } from "../Elements/Buttons";
+import { SearchConcertBtn } from "../Elements/Buttons";
 
 export default function ConcertList() {
   return (
@@ -7,7 +7,7 @@ export default function ConcertList() {
       <h1>Concert List</h1>
       <div id="buttons" className="flex justify-around mb-5">
         <AddConcertBtn />
-        <SearchConcert />
+        <SearchConcertBtn />
       </div>
       <div className="flex justify-around border py-1">
         <h4>Date</h4>

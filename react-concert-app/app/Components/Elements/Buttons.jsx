@@ -9,7 +9,7 @@ export default function AddConcertBtn() {
   );
 }
 
-export function SearchConcert() {
+export function SearchConcertBtn() {
   return (
     <button
       id="search-concert"
