@@ -1,5 +1,6 @@
 import AddConcertBtn from "../Elements/Buttons";
 import SearchConcertInput from "../Elements/Inputs";
+// import { InputDivArea, InputProvider } from "../Elements/Inputs";
 
 export default function ConcertList() {
   return (
@@ -9,6 +10,9 @@ export default function ConcertList() {
         <AddConcertBtn />
         <SearchConcertInput />
       </div>
+      {/* <InputProvider>
+        <InputDivArea />
+      </InputProvider> */}
       <div className="flex justify-around border py-1">
         <h4>Date</h4>
         <h4>Artist/Band</h4>
