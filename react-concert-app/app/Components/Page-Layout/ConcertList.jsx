@@ -4,9 +4,9 @@ import SearchConcertInput from "../Elements/Inputs";
 
 export default function ConcertList() {
   return (
-    <div className="text-center w-1/3 h-svh bg-zinc-500">
+    <div className="text-center w-1/2 h-svh bg-zinc-500">
       <h1>Concert List</h1>
-      <div id="buttons" className="flex justify-around mb-5">
+      <div id="buttons" className=" mb-5">
         <AddConcertBtn />
         <SearchConcertInput />
       </div>
