@@ -1,5 +1,5 @@
-import AddConcertBtn from "../Elements/Buttons";
-import SearchConcertInput from "../Elements/Inputs";
+import AddConcertBtn from "../Elements/AddConcertBtn";
+import SearchConcertInput from "../Elements/SearchConcertInput";
 // import { InputDivArea, InputProvider } from "../Elements/Inputs";
 
 export default function ConcertList() {
