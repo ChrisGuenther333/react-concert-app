@@ -1,5 +1,7 @@
 import AddConcertBtn from "../Elements/AddConcertBtn";
 import SearchConcertInput from "../Elements/SearchConcertInput";
+import events from "../Elements/PastConcerts";
+import PastConcerts from "../Elements/PastConcerts";
 // import { InputDivArea, InputProvider } from "../Elements/Inputs";
 
 export default function ConcertList() {
@@ -10,24 +12,7 @@ export default function ConcertList() {
         <AddConcertBtn />
         <SearchConcertInput />
       </div>
-      {/* <InputProvider>
-        <InputDivArea />
-      </InputProvider> */}
-      <div className="flex justify-around border py-1">
-        <h4>Date</h4>
-        <h4>Artist/Band</h4>
-        <h4>Venue</h4>
-      </div>
-      <div className="flex justify-around border py-1">
-        <h4>Date</h4>
-        <h4>Artist/Band</h4>
-        <h4>Venue</h4>
-      </div>
-      <div className="flex justify-around border py-1">
-        <h4>Date</h4>
-        <h4>Artist/Band</h4>
-        <h4>Venue</h4>
-      </div>
+      <PastConcerts />
     </div>
   );
 }

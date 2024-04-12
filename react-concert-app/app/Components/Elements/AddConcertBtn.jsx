@@ -1,8 +1,10 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+// import AsyncSelect from "react-select/async";
+import Performers from "./Performers";
 
-const AddConcertButton = ({  }) => {
+const AddConcertButton = ({}) => {
   const [inputArea, setInputArea] = useState(false);
   const [date, setDate] = useState("");
   const [performer, setPerformer] = useState("");
@@ -17,7 +19,6 @@ const AddConcertButton = ({  }) => {
     const newConcert = { date, performer, venue };
     const onAddConcert = (newConcert) => {
       console.log("New concert added:", newConcert);
-      // You can implement logic to add the new concert to your data store here
     };
     // Clear input fields
     setDate("");
@@ -34,26 +35,27 @@ const AddConcertButton = ({  }) => {
         + Add Concert
       </button>
       {inputArea && (
-        <div>
+        <div className="my-2">
           <input
             type="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md w-44 h-8 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md w-44 h-8 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ml-2 my-1"
           />
-          <input
+          {/* <input
             type="text"
             value={performer}
             onChange={(e) => setPerformer(e.target.value)}
             placeholder="Performer"
-            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md w-44 h-8 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
-          />
+            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md w-44 h-8 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ml-2 my-1"
+          /> */}
+          <Performers />
           <input
             type="text"
             value={venue}
             onChange={(e) => setVenue(e.target.value)}
             placeholder="Venue"
-            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md w-44 h-8 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md w-44 h-8 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 ml-2 my-1"
           />
           <button onClick={handleClickSave}>Save</button>
         </div>
