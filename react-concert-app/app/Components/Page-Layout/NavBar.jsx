@@ -1,4 +1,6 @@
 import Logo from "../Elements/Logo/Logo.jsx"
+import PastConcertsBtn from "../Elements/PastConcertsBtn.jsx"
+import UpcomingConcertsBtn from "../Elements/UpcomingConcertsBtn.jsx"
 
 export default function NavBar() {
     return (
@@ -7,8 +9,8 @@ export default function NavBar() {
                 <Logo/>
                 <span className="text-white ms-3">Concert Tracker</span>
             </div>
-            <button className="mx-20 p-3 hover:bg-gray-500">Past Concerts</button>
-            <button className="p-3 hover:bg-gray-500">Upcoming Concerts</button>
+            <PastConcertsBtn/>
+            <UpcomingConcertsBtn/>
         </nav>
     )
 }
