@@ -1,15 +1,16 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { events } from "../Data/testData";
+import usePastConcerts from '../Data/usePastConcerts'
+
 
 //FIXME:
 //date to restrict calendar to prevent user error
 const date = new Date();
 let today = date.getDate();
 
-const AddConcertButton = ({ events: existingEvents }) => {
-  const [events, setEvents] = useState([existingEvents]);
+const AddConcertButton = () => {
+  const {events, setEvents} = usePastConcerts();
   const [inputArea, setInputArea] = useState(false);
   const [date, setDate] = useState("");
   const [performerName, setPerformerName] = useState("");
@@ -24,7 +25,7 @@ const AddConcertButton = ({ events: existingEvents }) => {
     const id = Math.floor(Math.random() * 10000);
     const type = typeSelect.value;
 
-    const newConcert = { id, date, type, performerName, venue };
+    const newConcert = { id, date, type, name: performerName, venue };
 
     setEvents([...events, newConcert]);
 
