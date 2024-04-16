@@ -3,18 +3,19 @@ import React, { useEffect, useState } from "react";
 import usePastConcerts from "../Data/usePastConcerts";
 
 const PastConcerts = () => {
-  // Define state variables to hold your data
+  // Define state variables to hold your data using the custom hook
   const {
-    events,
-    setEvents,
+    events, // Array of past concerts
+    setEvents, // Function to update past concerts data
 
-    currentEventId,
-    setCurrentEventId,
-  } = usePastConcerts();
+    currentEventId, // ID of the currently selected event
+    setCurrentEventId, // Function to update the currently selected event ID
+  } = usePastConcerts(); // Destructure the values returned from the custom hook
 
-  // Your component JSX and logic here
+  // Render your component JSX and logic here
   return (
     <div>
+      {/* Header row for displaying column names */}
       <div className="flex justify-evenly text-left text-lg font-semibold border-b-2">
         <h2 className="w-24 px-2">Date</h2>
         <h2 className="w-16 px-1">Type</h2>
@@ -22,6 +23,7 @@ const PastConcerts = () => {
         <h2 className="w-80 pr-2">Venue</h2>
       </div>
 
+      {/* Map over the array of past concerts and render each concert's information */}
       {events.map(({ id, date, type, name, venue }) => (
         <div key={id} className="flex justify-evenly text-left ">
           <p className="w-24 px-2">{date}</p>

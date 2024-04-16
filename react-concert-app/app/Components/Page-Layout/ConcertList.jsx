@@ -6,8 +6,8 @@ import PastConcerts from "../Elements/PastConcerts";
 
 export default function ConcertList() {
   return (
-    <div className="text-center w-1/2 h-svh bg-zinc-500">
-      <div id="buttons" className=" mb-5">
+    <div className="text-center w-1/2 h-svh bg-zinc-500 ">
+      <div id="buttons" className=" my-5 flex justify-around">
         <AddConcertBtn />
         <SearchConcertInput />
       </div>
