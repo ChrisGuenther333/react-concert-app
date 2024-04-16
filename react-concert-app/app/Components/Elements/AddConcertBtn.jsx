@@ -68,20 +68,20 @@ const AddConcertButton = () => {
             max={today}
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md w-44 h-10 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 my-1 w-48"
+            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-mdh-10 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 my-1 w-48"
           />
           <select
             id="typeSelect"
-            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md w-44 h-10 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 my-1 w-48"
+            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md h-10 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 my-1 w-48"
           >
             <option value="">Select Type</option>
-            <option value="music">Music</option>
-            <option value="sports">Sports</option>
-            <option value="misc">Miscellaneous</option>
+            <option value="Music">Music</option>
+            <option value="Sports">Sports</option>
+            <option value="Misc">Miscellaneous</option>
           </select>
           <input
             onChange={(e) => setPerformerName(e.target.value)}
-            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md w-44 h-10 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500  my-1 w-48"
+            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md h-10 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500  my-1 w-48"
             type="text"
             value={performerName}
             placeholder="Performer"
@@ -91,7 +91,7 @@ const AddConcertButton = () => {
             value={venue}
             onChange={(e) => setVenue(e.target.value)}
             placeholder="Venue"
-            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md w-44 h-10 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500  my-1 w-48"
+            className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md h-10 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500  my-1 w-48"
           />
           <button
             onClick={handleClickSave}

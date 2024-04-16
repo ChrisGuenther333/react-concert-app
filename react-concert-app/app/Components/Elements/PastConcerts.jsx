@@ -26,10 +26,10 @@ const PastConcerts = () => {
       {/* Map over the array of past concerts and render each concert's information */}
       {events.map(({ id, date, type, name, venue }) => (
         <div key={id} className="flex justify-evenly text-left ">
-          <p className="w-24 px-2">{date}</p>
-          <p className="w-16 px-1">{type}</p>
-          <p className="w-60 px-1">{name}</p>
-          <p className="w-80 pr-2">{venue}</p>
+          <p className="w-26 pt-2">{date}</p>
+          <p className="w-16 pt-2">{type}</p>
+          <p className="w-60 pt-2">{name}</p>
+          <p className="w-80 pr-2 pt-2">{venue}</p>
         </div>
       ))}
     </div>
