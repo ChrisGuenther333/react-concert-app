@@ -13,10 +13,14 @@ const PastConcerts = () => {
     setCurrentEventId, // Function to update the currently selected event ID
   } = usePastConcerts(); // Destructure the values returned from the custom hook
 
+  const { eventToDelete, setEventToDelete } = useDeletePastConcerts();
+
   const deletePastConcert = (id) => {
-    console.log(`concert with id ${id} clicked`);
-    // const pastConcertSelectedId =
-  };
+    const updatedEvents = events.filter((event) =>event.id !== id)
+    setEvents(updatedEvents)
+    if (currentEventId === id) {
+      setCurrentEventId(updatedEvents[0]?.id || "");
+  };}
 
   // Render your component JSX and logic here
   return (
