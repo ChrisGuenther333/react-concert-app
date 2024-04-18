@@ -1,22 +1,22 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import usePastConcerts from "../Data/usePastConcerts";
-import useDeletePastConcerts from "../Data/useDeletePastConcerts";
+import usePastEvents from "../Data/usePastEvents";
+import useDeletePastEvents from "../Data/useDeletePastEvents";
 import Image from "next/image";
 import trashDelete from "../Images/trashDelete.png";
 import editIcon from "../Images/editIcon.png";
 
-const PastConcerts = () => {
+const PastEvents = () => {
   // Define state variables to hold your data using the custom hook
   const {
-    events, // Array of past concerts
-    setEvents, // Function to update past concerts data
+    events, // Array of past events
+    setEvents, // Function to update past events data
 
     currentEventId, // ID of the currently selected event
     setCurrentEventId, // Function to update the currently selected event ID
-  } = usePastConcerts(); // Destructure the values returned from the custom hook
+  } = usePastEvents(); // Destructure the values returned from the custom hook
 
-  const deletePastConcert = (id) => {
+  const deletePastEvent = (id) => {
     const updatedEvents = events.filter((event) => event.id !== id);
     setEvents(updatedEvents);
     if (currentEventId === id) {
@@ -35,7 +35,7 @@ const PastConcerts = () => {
         <h2 className="ml-[14rem] pr-2">Venue</h2>
       </div>
 
-      {/* Map over the array of past concerts and render each concert's information */}
+      {/* Map over the array of past event and render each event's information */}
       {events.map(({ id, date, type, name, venue }) => (
         <div key={id} className="flex justify-around text-left mx-5">
           <p className="w-26 pt-5">{date}</p>
@@ -44,8 +44,8 @@ const PastConcerts = () => {
           <p className="w-80 pr-2 pt-5">{venue}</p>
           {/* <button>
             <Image
-              // onClick={() => editPastConcert(id)}
-              id="editConcertBtn"
+              // onClick={() => editPastEvent(id)}
+              id="editEventBtn"
               className="w-26 pt-2"
               src={editIcon}
               height={40}
@@ -55,8 +55,8 @@ const PastConcerts = () => {
 
           <button>
             <Image
-              onClick={() => deletePastConcert(id)}
-              id="deleteConcertBtn"
+              onClick={() => deletePastEvent(id)}
+              id="deleteEventBtn"
               className="w-26 pt-2"
               src={trashDelete}
               height={40}
@@ -69,4 +69,4 @@ const PastConcerts = () => {
   );
 };
 
-export default PastConcerts;
+export default PastEvents;

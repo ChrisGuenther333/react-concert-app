@@ -1,4 +1,4 @@
-export default function DisplayedConcert() {
+export default function DisplayedEvent() {
     return (
       <div className="w-1/3 h-svh text-center bg-stone-200 text-black">
         <div className="flex justify-around">

@@ -1,22 +1,22 @@
 'use client'
 import NavBar from "./Components/Page-Layout/NavBar.jsx";
-import ConcertList from "./Components/Page-Layout/ConcertList.jsx";
-import DisplayedConcert from "./Components/Page-Layout/DisplayedConcert.jsx";
+import EventList from "./Components/Page-Layout/EventList.jsx";
+import DisplayedEvent from "./Components/Page-Layout/DisplayedEvent.jsx";
 import Footer from "./Components/Page-Layout/Footer.jsx";
-import PastConcertProvider from "./Components/Data/PastConcertProvider.jsx";
+import PastEventProvider from "./Components/Data/PastEventProvider.jsx";
 
 export default function Home() {
   return (
-    <PastConcertProvider>
+    <PastEventProvider>
       <div>
         <NavBar/>
         <div className="flex">
-          <ConcertList/>
-          <DisplayedConcert/>
+          <EventList/>
+          <DisplayedEvent/>
         </div>
         <Footer/>
       </div>
-    </PastConcertProvider>
+    </PastEventProvider>
 
   );
 }

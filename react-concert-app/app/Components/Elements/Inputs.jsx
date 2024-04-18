@@ -8,8 +8,8 @@
 // export const InputProvider = ({ children }) => {
 //   const [inputData, setInputData] = useState({
 //     artistName: "",
-//     concertDate: "",
-//     concertVenue: "",
+//     eventDate: "",
+//     eventVenue: "",
 //   });
 
 //   return (
@@ -25,8 +25,8 @@
 //   return (
 //     <div>
 //       <InputArtistName />
-//       <InputConcertDate />
-//       <InputConcertVenue />
+//       <InputEventDate />
+//       <InputEventVenue />
 //     </div>
 //   );
 // };
@@ -46,41 +46,41 @@
 //   );
 // };
 
-// export const InputConcertDate = () => {
+// export const InputEventDate = () => {
 //   const { inputData, setInputData } = useContext(InputContext);
 
 //   return (
 //     <input
 //       type="date"
-//       value={inputData.concertDate}
+//       value={inputData.eventDate}
 //       onChange={(e) =>
-//         setInputData({ ...inputData, concertDate: e.target.value })
+//         setInputData({ ...inputData, eventDate: e.target.value })
 //       }
 //       placeholder="Date"
 //     />
 //   );
 // };
 
-// export const InputConcertVenue = () => {
+// export const InputEventVenue = () => {
 //   const { inputData, setInputData } = useContext(InputContext);
 
 //   return (
 //     <input
 //       type="text"
-//       value={inputData.concertVenue}
+//       value={inputData.eventVenue}
 //       onChange={(e) =>
-//         setInputData({ ...inputData, concertVenue: e.target.value })
+//         setInputData({ ...inputData, eventVenue: e.target.value })
 //       }
 //       placeholder="Venue"
 //     />
 //   );
 // };
 
-export default function SearchConcertInput() {
+export default function SearchEventInput() {
   return (
     <input
       type="text"
-      id="search-concert"
+      id="search-event"
       className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
       placeholder="Search..."
     />

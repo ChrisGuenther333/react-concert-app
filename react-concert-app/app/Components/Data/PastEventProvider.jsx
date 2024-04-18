@@ -5,9 +5,9 @@ import {
     events as testEvents,
 } from "./testData";
   
-export const PastConcertContext = createContext()
+export const PastEventContext = createContext()
 
-export default function PastConcertProvider({ children }) {
+export default function PastEventProvider({ children }) {
 
     const [events, setEvents] = useState(testEvents); // Default events data
     const [currentEventId, setCurrentEventId] = useState(testCurrentEventId); // Default current event ID
@@ -34,8 +34,8 @@ export default function PastConcertProvider({ children }) {
     };
 
     return (
-        <PastConcertContext.Provider value={value}>
+        <PastEventContext.Provider value={value}>
             {children}
-        </PastConcertContext.Provider>
+        </PastEventContext.Provider>
     )
 }

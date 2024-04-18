@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import usePastConcerts from "../Data/usePastConcerts";
+import usePastEvents from "../Data/usePastEvents";
 
-const AddConcertButton = () => {
-  const { events, setEvents } = usePastConcerts();
+const AddEventButton = () => {
+  const { events, setEvents } = usePastEvents();
   const [inputArea, setInputArea] = useState(false);
   const [date, setDate] = useState("");
   const [performerName, setPerformerName] = useState("");
@@ -18,11 +18,11 @@ const AddConcertButton = () => {
     const id = Math.floor(Math.random() * 10000);
     const type = typeSelect.value;
 
-    const newConcert = { id, date, type, name: performerName, venue };
+    const newEvent = { id, date, type, name: performerName, venue };
 
-    setEvents([...events, newConcert]);
+    setEvents([...events, newEvent]);
 
-    console.log("New concert added:", newConcert);
+    console.log("New event added:", newEvent);
     setInputArea(false);
 
     // Clear input fields
@@ -42,7 +42,7 @@ const AddConcertButton = () => {
         onClick={handleClick}
         className="px-4 py-2 border flex gap-2 border-slate-500 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-200 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150  bg-slate-800 w-48 text-center"
       >
-        + Add Concert
+        + Add Event
       </button>
       {inputArea && (
         <div className="my-2">
@@ -88,4 +88,4 @@ const AddConcertButton = () => {
   );
 };
 
-export default AddConcertButton;
+export default AddEventButton;

@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-export default function AddConcertBtn() {
+export default function AddEventBtn() {
   const [inputArea, setInputArea] = useState(false); // Initial state is false
 
   const handleClick = () => {
@@ -14,15 +14,15 @@ export default function AddConcertBtn() {
     <div>
       <button
         onClick={handleClick}
-        id="add-concert"
+        id="add-event"
         className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
       >
-        + Add Concert
+        + Add Event
       </button>
       {/* Render input area conditionally based on inputArea state */}
       {inputArea && (
         <div
-          id="search-concert"
+          id="search-event"
           className="flex items-center bg-white border border-gray-300 rounded-lg shadow-md px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
           placeholder="Search..."
         ></div>
