@@ -1,16 +1,10 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import usePastConcerts from '../Data/usePastConcerts'
-
-
-//FIXME:
-//date to restrict calendar to prevent user error
-const date = new Date();
-let today = date.getDate();
+import usePastConcerts from "../Data/usePastConcerts";
 
 const AddConcertButton = () => {
-  const {events, setEvents} = usePastConcerts();
+  const { events, setEvents } = usePastConcerts();
   const [inputArea, setInputArea] = useState(false);
   const [date, setDate] = useState("");
   const [performerName, setPerformerName] = useState("");
@@ -20,7 +14,6 @@ const AddConcertButton = () => {
     setInputArea(!inputArea);
   };
 
-  //FIXME: displaying in console but not rendering div
   const handleClickSave = () => {
     const id = Math.floor(Math.random() * 10000);
     const type = typeSelect.value;
@@ -36,20 +29,11 @@ const AddConcertButton = () => {
     setDate("");
     setPerformerName("");
     setVenue("");
-
-    // console.log("New concert added:", newConcert);
-    // events.push(newConcert);
-
-    // setInputArea(false);
-
-    // // const onAddConcert = (newConcert) => {
-    // //   console.log("New concert added:", newConcert);
-    // // };
-    // // Clear input fields
-    // setDate("");
-    // setPerformerName("");
-    // setVenue("");
   };
+
+  const today = new Date();
+  today.setDate(today.getDate() - 1);
+  const todayString = today.toISOString().split("T")[0];
 
   return (
     <div>
@@ -64,8 +48,7 @@ const AddConcertButton = () => {
         <div className="my-2">
           <input
             type="date"
-            //FIXME:
-            max={today}
+            max={todayString}
             value={date}
             onChange={(e) => setDate(e.target.value)}
             className="flex items-center bg-white border border-gray-300 rounded-lg shadow-mdh-10 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 my-1 w-48"
