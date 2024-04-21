@@ -1,13 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import usePastEvents from "../Data/usePastEvents";
-import useDeletePastEvents from "../Data/useDeletePastEvents";
 import Image from "next/image";
 import trashDelete from "../Images/trashDelete.png";
-import editIcon from "../Images/editIcon.png";
+import renderEventDetails from "../Page-Layout/DisplayedPastEvent";
 
 const PastEvents = () => {
   // Define state variables to hold your data using the custom hook
+
   const {
     events, // Array of past events
     setEvents, // Function to update past events data
@@ -24,6 +24,12 @@ const PastEvents = () => {
     }
   };
 
+  function handleEventClick() {
+    // Update clickedPastEventId when an event is clicked
+    setCurrentEventId(currentEventId);
+    renderEventDetails(currentEventId);
+  }
+
   // Render your component JSX and logic here
   return (
     <div>
@@ -37,22 +43,24 @@ const PastEvents = () => {
 
       {/* Map over the array of past event and render each event's information */}
       {events.map(({ id, date, type, name, venue }) => (
-        <div key={id} className="flex justify-around text-left mx-5">
-          <p className="w-26 pt-5">{date}</p>
-          <p className="w-16 pt-5">{type}</p>
-          <p className="w-60 pt-5">{name}</p>
-          <p className="w-80 pr-2 pt-5">{venue}</p>
-          {/* <button>
-            <Image
-              // onClick={() => editPastEvent(id)}
-              id="editEventBtn"
-              className="w-26 pt-2"
-              src={editIcon}
-              height={40}
-              alt="logo"
-            />
-          </button> */}
-
+        <div
+          id={id}
+          key={id}
+          className="flex justify-around text-left mx-5"
+          onClick={() => handleEventClick(id)}
+        >
+          <p key={date} className="w-26 pt-5">
+            {date}
+          </p>
+          <p key={type} className="w-16 pt-5">
+            {type}
+          </p>
+          <p key={name} className="w-60 pt-5">
+            {name}
+          </p>
+          <p key={venue} className="w-80 pr-2 pt-5">
+            {venue}
+          </p>
           <button>
             <Image
               onClick={() => deletePastEvent(id)}

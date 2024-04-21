@@ -1,7 +1,7 @@
 'use client'
 import NavBar from "./Components/Page-Layout/NavBar.jsx";
-import EventList from "./Components/Page-Layout/EventList.jsx";
-import DisplayedEvent from "./Components/Page-Layout/DisplayedEvent.jsx";
+import EventList from "./Components/Page-Layout/PastEventList.jsx";
+import DisplayedEvent from "./Components/Page-Layout/DisplayedPastEvent.jsx";
 import Footer from "./Components/Page-Layout/Footer.jsx";
 import PastEventProvider from "./Components/Data/PastEventProvider.jsx";
 
