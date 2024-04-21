@@ -1,12 +1,12 @@
-import AddEventBtn from "../Elements/AddEventBtn";
+import LeftAddEventBtn from "../Elements/LeftAddEventBtn";
 import SearchEventInput from "../Elements/SearchEventInput";
-import PastEvents from "../Elements/PastEventsInfoDiv";
+import PastEvents from "../Elements/LeftPastEventsInfoDiv";
 
-export default function PastEventList() {
+export default function LeftPastEventList() {
   return (
     <div className="text-center w-2/3 h-svh bg-zinc-500 ">
       <div id="buttons" className=" my-5 flex justify-around">
-        <AddEventBtn />
+        <LeftAddEventBtn />
         <SearchEventInput />
       </div>
       <PastEvents />

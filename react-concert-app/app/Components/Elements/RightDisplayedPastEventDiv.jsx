@@ -1,7 +1,7 @@
 import { events } from "../Data/testData";
 import usePastEvents from "../Data/usePastEvents";
 
-export default function DisplayedPastEvent() {
+export default function RightDisplayedPastEventDiv() {
   // Define state variables to hold your data using the custom hook
   const {
     events, // Array of past events

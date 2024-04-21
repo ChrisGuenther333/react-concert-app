@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import usePastEvents from "../Data/usePastEvents";
 import Image from "next/image";
 import trashDelete from "../Images/trashDelete.png";
-import renderEventDetails from "../Page-Layout/DisplayedPastEvent";
+import renderEventDetails from "./RightDisplayedPastEventDiv";
 
 const PastEvents = () => {
   // Define state variables to hold your data using the custom hook

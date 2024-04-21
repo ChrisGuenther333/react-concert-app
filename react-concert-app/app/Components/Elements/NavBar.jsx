@@ -1,7 +1,5 @@
-// import Logo from "../Elements/Logo/Logo.jsx"
-
-import PastEventsBtn from "../Elements/PastEventsBtn.jsx";
-import UpcomingEventsBtn from "../Elements/UpcomingEventsBtn.jsx";
+import PastEventsBtn from "./PastEventsBtn.jsx";
+import UpcomingEventsBtn from "./UpcomingEventsBtn.jsx";
 import Image from "next/image";
 import logo from "../Images/Logo/TicketLogo.png";
 
