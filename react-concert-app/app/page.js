@@ -4,9 +4,6 @@ import LeftPastEventList from "./Components/Page-Layout/LeftPastEventList.jsx";
 import RightDisplayedPastEventDiv from "./Components/Elements/RightDisplayedPastEventDiv.jsx";
 import Footer from "./Components/Elements/Footer.jsx";
 import PastEventProvider from "./Components/Data/PastEventProvider.jsx";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import pastEvents from "./pastEvents"
-import futureEvents from "./futureEvents.js"
 
 export default function Home() {
   return (
