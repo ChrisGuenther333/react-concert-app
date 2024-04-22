@@ -3,7 +3,7 @@ import NavBar from "../Elements/NavBar.jsx";
 import Footer from "../Elements/Footer.jsx";
 import PastEventProvider from "../Data/PastEventProvider.jsx";
 
-export default function Home() {
+export default function futureEvents() {
   return (
     <PastEventProvider>
       <div>

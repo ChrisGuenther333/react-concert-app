@@ -24,10 +24,13 @@ const PastEvents = () => {
     }
   };
 
-  function handleEventClick() {
+  function handleEventClick(id) {
     // Update clickedPastEventId when an event is clicked
-    setCurrentEventId(currentEventId);
-    renderEventDetails(currentEventId);
+    console.log(currentEventId);
+    console.log(events);
+    setCurrentEventId(id);
+
+    // renderEventDetails(currentEventId);
   }
 
   // Render your component JSX and logic here
