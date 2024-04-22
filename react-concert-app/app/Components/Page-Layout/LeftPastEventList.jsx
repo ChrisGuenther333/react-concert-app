@@ -4,7 +4,7 @@ import PastEvents from "../Elements/LeftPastEventsInfoDiv";
 
 export default function LeftPastEventList() {
   return (
-    <div className="text-center w-2/3 h-svh bg-zinc-500 ">
+    <div className="text-center w-3/5 bg-zinc-500 ">
       <div id="buttons" className=" my-5 flex justify-around">
         <LeftAddEventBtn />
         <SearchEventInput />

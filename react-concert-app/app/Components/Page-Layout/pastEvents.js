@@ -11,7 +11,7 @@ export default function pastEvents() {
     <PastEventProvider>
       <div>
         <NavBar />
-        <div className="flex">
+        <div className="flex justify-evenly">
           <LeftPastEventList />
           <RightDisplayedPastEventDiv />
         </div>

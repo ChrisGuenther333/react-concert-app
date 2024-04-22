@@ -6,27 +6,29 @@ import Footer from "./Components/Elements/Footer.jsx";
 import PastEventProvider from "./Components/Data/PastEventProvider.jsx";
 import pastEvents from "./Components/Page-Layout/pastEvents.js";
 import futureEvents from "./Components/Page-Layout/futureEvents.js";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 export default function Home() {
   return (
     <PastEventProvider>
       <div>
-        <NavBar />
-        <div className="flex">
+        <nav>
+          <NavBar />
+        </nav>
+
+        <div 
+        className="flex h-screen"
+        >
           <LeftPastEventList />
           <RightDisplayedPastEventDiv />
         </div>
-        <Footer />
+        <footer>
+          <Footer />
+        </footer>
       </div>
     </PastEventProvider>
   );
 }
-
-
 
 const router = createBrowserRouter([
   {

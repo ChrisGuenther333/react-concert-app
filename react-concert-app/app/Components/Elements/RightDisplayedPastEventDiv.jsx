@@ -1,5 +1,6 @@
 import { events } from "../Data/testData";
 import usePastEvents from "../Data/usePastEvents";
+// import BandPhotoInput from "./RightAddEventPic";
 
 export default function RightDisplayedPastEventDiv() {
   // Define state variables to hold your data using the custom hook
@@ -23,10 +24,16 @@ export default function RightDisplayedPastEventDiv() {
     if (currentEventId === event.id) {
       return (
         <div>
-          <p>{event.date}</p>
-          <p>{event.type}</p>
-          <p>{event.name}</p>
-          <p>{event.venue}</p>
+          <p key={event.date} className="text-lg mt-5">
+            {event.date}
+          </p>
+          {/* <p className="text-lg"> {event.type}</p> */}
+          <p key={event.name} className="text-3xl m-3">
+            {event.name}
+          </p>
+          <p key={event.venue} className="text-xl">
+            {event.venue}
+          </p>
         </div>
       );
     }
@@ -35,9 +42,10 @@ export default function RightDisplayedPastEventDiv() {
   }
 
   return (
-    <div>
+    <div key="bandDetails" className="bg-slate-600 w-2/5 flex flex-col text-center"> 
       {/* Render event details */}
       {events.map((event) => renderEventDetails(event))}
+      {/* <BandPhotoInput /> */}
     </div>
   );
 }

@@ -39,9 +39,9 @@ const PastEvents = () => {
       {/* Header row for displaying column names */}
       <div className="flex text-left text-lg font-semibold border-b-2 mx-5">
         <h2 className="mx-3 px-2">Date</h2>
-        <h2 className="ml-16 px-1">Type</h2>
-        <h2 className="ml-14 px-1">Name</h2>
-        <h2 className="ml-[14rem] pr-2">Venue</h2>
+        <h2 className="ml-10 px-1">Type</h2>
+        <h2 className="ml-10 px-1">Name</h2>
+        <h2 className="ml-52 pr-2">Venue</h2>
       </div>
 
       {/* Map over the array of past event and render each event's information */}
