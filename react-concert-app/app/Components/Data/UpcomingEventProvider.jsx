@@ -10,6 +10,7 @@ export const UpcomingEventContext = createContext()
 
 export default function UpcomingEventProvider({ children }) {
     const [keyword, setKeyword] = useState(localStorage.getItem('keyword') ?? '')
+    const [dateTime, setDateTime] = useState('')
     const events = useEventFetchRequest({ keyword })
 
     const [currentEventId, setCurrentEventId] = useState(testCurrentEventId); // Default current event ID
@@ -30,9 +31,11 @@ export default function UpcomingEventProvider({ children }) {
       events, // Array of Upcoming concerts
       currentEventId, // ID of the currently selected event
       keyword,
+      dateTime,
       // State mutators or functions that change the state
       setCurrentEventId, // Function to update the currently selected event ID
-      setKeyword
+      setKeyword,
+      setDateTime
     };
 
     return (

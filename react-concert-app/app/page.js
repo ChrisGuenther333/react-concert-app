@@ -10,29 +10,28 @@ import futureEvents from "./Components/Page-Layout/futureEvents.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import useEventFetchRequest from "./Components/Data/useEventFetchRequest.jsx";
 import UpcomingEventProvider from "./Components/Data/UpcomingEventProvider.jsx";
+import UpcomingEvents from "./Components/Elements/UpcomingEvents.jsx";
 
 export default function Home() {
 
   return (
-    <UpcomingEventProvider>
-      <PastEventProvider>
-        <div>
-          <nav>
-            <NavBar />
-          </nav>
+    <PastEventProvider>
+      <div>
+        <nav>
+          <NavBar />
+        </nav>
 
-          <div 
-          className="flex h-screen"
-          >
-            <LeftPastEventList />
-            <RightDisplayedPastEventDiv />
-          </div>
-          <footer>
-            <Footer />
-          </footer>
+        <div 
+        className="flex h-screen"
+        >
+          <LeftPastEventList />
+          <RightDisplayedPastEventDiv />
         </div>
-      </PastEventProvider>
-    </UpcomingEventProvider>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
+    </PastEventProvider>
   );
 }
 

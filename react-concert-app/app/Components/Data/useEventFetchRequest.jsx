@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react"
+import { useDebounce } from "use-debounce"
 
 const useEventFetchRequest = (queryObject) => {
     const [events, setEvents] = useState([])
+    const [queryObjectDebounce] = useDebounce(queryObject, 1000)
     useEffect(() => {
         const querySearchParams = new URLSearchParams({
             apikey: 'O7mgiEMxAiHANcefL8qVSA6ab9XSrdZK',
-            ...queryObject
+            ...queryObjectDebounce
         })
         fetch(`https://app.ticketmaster.com/discovery/v2/events?${querySearchParams}`, {
         })
@@ -13,12 +15,9 @@ const useEventFetchRequest = (queryObject) => {
             return response.json()
         })
         .then(data => {
-          data._embedded.events.forEach(event => {
-            console.log(event.url)
-          })
           setEvents(data?._embedded?.events ?? [])
         })
-    }, [queryObject?.keyword])
+    }, [queryObjectDebounce?.keyword])
     return events
 }
 

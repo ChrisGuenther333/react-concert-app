@@ -14,14 +14,12 @@ const LeftAddEventButton = () => {
   const [date, setDate] = useState("");
   const [performerName, setPerformerName] = useState("");
   const [venue, setVenue] = useState("");
-  const [isUpcomingEvent, setIsUpcomingEvent] = useState(true)
-  const {setKeyword} = useContext(UpcomingEventContext)
 
   // Toggle input area visibility
   const handleClick = () => {
     setInputArea(!inputArea);
   };
-  const handleClickSavePastEvents = () => {
+  const handleClickSave = () => {
     const id = Math.floor(Math.random() * 10000);
 
     // Get the selected type from the dropdown
@@ -44,22 +42,6 @@ const LeftAddEventButton = () => {
     setPerformerName("");
     setVenue("");
   };
-  const handleClickSaveUpcomingEvents = useCallback(() => {
-    console.log(performerName)
-    setKeyword(performerName)
-  }, [performerName])
-
-
-  // Add new event and update state
-  const handleClickSave = useCallback(() => {
-    // Generate a random ID for the new event
-    if (isUpcomingEvent) {
-      handleClickSaveUpcomingEvents()
-    }
-    else {
-      handleClickSavePastEvents()
-    }
-  }, [isUpcomingEvent, performerName]);
 
   // Get today's date as a string
   const today = new Date();
