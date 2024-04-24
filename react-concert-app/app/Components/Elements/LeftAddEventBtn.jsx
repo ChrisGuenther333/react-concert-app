@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useContext } from "react";
 import usePastEvents from "../Data/usePastEvents";
+import { UpcomingEventContext } from "../Data/UpcomingEventProvider";
 
 // Component for the left-side button to add events
 const LeftAddEventButton = () => {
@@ -18,10 +19,7 @@ const LeftAddEventButton = () => {
   const handleClick = () => {
     setInputArea(!inputArea);
   };
-
-  // Add new event and update state
   const handleClickSave = () => {
-    // Generate a random ID for the new event
     const id = Math.floor(Math.random() * 10000);
 
     // Get the selected type from the dropdown

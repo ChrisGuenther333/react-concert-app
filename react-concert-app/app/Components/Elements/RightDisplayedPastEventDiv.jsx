@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { events } from "../Data/testData";
 import usePastEvents from "../Data/usePastEvents";
 // import BandPhotoInput from "./RightAddEventPic";
@@ -44,7 +45,7 @@ export default function RightDisplayedPastEventDiv() {
   return (
     <div key="bandDetails" className="bg-slate-600 w-2/5 flex flex-col text-center"> 
       {/* Render event details */}
-      {events.map((event) => renderEventDetails(event))}
+      {events.map((event) => <Fragment key={event.id}>{renderEventDetails(event)}</Fragment>)}
       {/* <BandPhotoInput /> */}
     </div>
   );
