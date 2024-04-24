@@ -26,15 +26,15 @@ const UpcomingEvents = () => {
       </div>
 
       {/* Map over the array of past event and render each event's information */}
-      {events.map(({ id, date, type, name, venue, url }) => (
+      {events.map(({ id, dates, type, name, venue, url }) => (
         <div
           id={id}
           key={id}
           className="flex justify-around text-left mx-5"
           onClick={() => handleEventClick(id)}
         >
-          <p key={date} className="w-26 pt-5">
-            {date}
+          <p key={dates} className="w-26 pt-5">
+            {dates.start.localDate}
           </p>
           <p key={type} className="w-16 pt-5">
             {type}
