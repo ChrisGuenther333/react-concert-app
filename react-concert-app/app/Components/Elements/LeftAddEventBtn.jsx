@@ -1,13 +1,13 @@
 "use client";
 
 import React, { useEffect, useState, useCallback, useContext } from "react";
-import usePastEvents from "../Data/usePastEvents";
-import { UpcomingEventContext } from "../Data/UpcomingEventProvider";
+import { EventContext } from "../Data/EventProvider";
 
 // Component for the left-side button to add events
 const LeftAddEventButton = () => {
   // Use custom hook to access past events data and functions
-  const { events, setEvents } = usePastEvents();
+  // const { events, setEvents } = useEvents();
+  const { events, setEvents } = useContext(EventContext)
 
   // State variables to manage input area visibility and input values
   const [inputArea, setInputArea] = useState(false);

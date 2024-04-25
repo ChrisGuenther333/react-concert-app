@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react"
-import { useDebounce } from "use-debounce"
+import { useState, useEffect } from "react";
+import { useDebounce } from "use-debounce";
 
-const useEventFetchRequest = (queryObject) => {
+export default function useEventFetchRequest (queryObject) {
     const [events, setEvents] = useState([])
     const [queryObjectDebounce] = useDebounce(queryObject, 1000)
     useEffect(() => {
@@ -16,9 +16,14 @@ const useEventFetchRequest = (queryObject) => {
         })
         .then(data => {
           setEvents(data?._embedded?.events ?? [])
+        }).catch(() => {
+            console.log('Issue with fetching data')
+            setEvents([])
         })
     }, [queryObjectDebounce?.keyword])
-    return events
+    
+    return {
+        events,
+        setEvents
+    }
 }
-
-export default useEventFetchRequest

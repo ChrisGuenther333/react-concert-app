@@ -19,7 +19,7 @@ export default function NavBar() {
           </Link>
         </button>
         <button>
-          <Link href="/pages/futureEvents">
+          <Link href="/pages/upcomingEvents">
             <UpcomingEventsBtn />
           </Link>
         </button>
