@@ -1,6 +1,7 @@
 import { Fragment } from "react";
 import { events } from "../Data/testData";
 import usePastEvents from "../Data/usePastEvents";
+import EventRating from "./RatingElement";
 // import BandPhotoInput from "./RightAddEventPic";
 
 export default function RightDisplayedPastEventDiv() {
@@ -24,17 +25,20 @@ export default function RightDisplayedPastEventDiv() {
     // Render details only if the current event ID matches the event's ID
     if (currentEventId === event.id) {
       return (
-        <div>
-          <p key={event.date} className="text-lg mt-5">
-            {event.date}
-          </p>
-          {/* <p className="text-lg"> {event.type}</p> */}
-          <p key={event.name} className="text-3xl m-3">
-            {event.name}
-          </p>
-          <p key={event.venue} className="text-xl">
-            {event.venue}
-          </p>
+        <div className="flex justify-evenly items-center ">
+          <EventRating />
+          <div>
+            <p key={event.date} className="text-lg mt-5">
+              {event.date}
+            </p>
+            {/* <p className="text-lg"> {event.type}</p> */}
+            <p key={event.name} className="text-3xl m-3">
+              {event.name}
+            </p>
+            <p key={event.venue} className="text-xl">
+              {event.venue}
+            </p>
+          </div>
         </div>
       );
     }
@@ -43,9 +47,14 @@ export default function RightDisplayedPastEventDiv() {
   }
 
   return (
-    <div key="bandDetails" className="bg-slate-600 w-2/5 flex flex-col text-center"> 
+    <div
+      key="bandDetails"
+      className="bg-slate-600 w-2/5 flex flex-col text-center justify-center "
+    >
       {/* Render event details */}
-      {events.map((event) => <Fragment key={event.id}>{renderEventDetails(event)}</Fragment>)}
+      {events.map((event) => (
+        <Fragment key={event.id}>{renderEventDetails(event)}</Fragment>
+      ))}
       {/* <BandPhotoInput /> */}
     </div>
   );

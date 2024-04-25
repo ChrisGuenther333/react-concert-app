@@ -1,5 +1,5 @@
 import LeftAddEventBtn from "./LeftAddEventBtn";
-import SearchEventInput from "./SearchEventInput";
+// import SearchEventInput from "./SearchEventInput";
 import PastEvents from "./LeftPastEventsInfoDiv";
 
 export default function LeftPastEventList() {
@@ -7,7 +7,7 @@ export default function LeftPastEventList() {
     <div className="text-center w-3/5 bg-zinc-500">
       <div id="buttons" className=" my-5 flex justify-around">
         <LeftAddEventBtn />
-        <SearchEventInput />
+        {/* <SearchEventInput /> */}
       </div>
       <PastEvents />
     </div>
