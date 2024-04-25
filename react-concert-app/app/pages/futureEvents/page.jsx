@@ -14,12 +14,12 @@ export default function Home() {
   return (
     <main>
       <UpcomingEventProvider>
-        <div className="h-svh">
+        <div className="min-h-screen flex flex-col">
           <nav>
             <NavBar />
           </nav>
 
-          <div className="flex h-full">
+          <div className="flex flex-grow">
             {/* <LeftPastEventList />
             <RightDisplayedPastEventDiv /> */}
             <UpcomingEvents/>

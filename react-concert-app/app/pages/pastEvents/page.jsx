@@ -9,12 +9,12 @@ import PastEventProvider from "../../Components/Data/PastEventProvider.jsx";
 export default function pastEvents() {
   return (
     <PastEventProvider>
-      <div className="h-svh">
+      <div className="min-h-screen flex flex-col">
         <nav>
           <NavBar />
         </nav>
 
-        <div className="flex h-full">
+        <div className="flex flex-grow">
           <LeftPastEventList />
           <RightDisplayedPastEventDiv />
         </div>
