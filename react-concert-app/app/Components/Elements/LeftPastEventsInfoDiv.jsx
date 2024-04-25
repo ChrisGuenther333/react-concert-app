@@ -3,6 +3,7 @@ import React, { useCallback, useContext } from "react";
 import { EventContext } from "../Data/EventProvider";
 import Image from "next/image";
 import trashDelete from "../Images/trashDelete.png";
+import Link from 'next/link'
 
 const PastEvents = () => {
   // Define state variables to hold your data using the custom hook
@@ -41,28 +42,34 @@ const PastEvents = () => {
         <h2 className="ml-14 px-1">Type</h2>
         <h2 className="ml-10 px-1">Name</h2>
         <h2 className="ml-[12.75rem] pr-2">Venue</h2>
+        <h2 className="ml-[12.75rem] pr-1">
+          {window?.location?.pathname?.includes('upcomingEvents') ? 'Ticket Link': ''}
+        </h2>
       </div>
 
       {/* Map over the array of past event and render each event's information */}
-      {(events ?? []).map(({ id, date, type, name, venue }) => (
+      {(events ?? []).map(({ id, dateTime, type, name, venue, purchaseUrl }) => (
         <div
           id={id}
           key={id}
           className="flex justify-around text-left mx-5"
           onClick={() => handleEventClick(id)}
         >
-          <p key={date} className="w-26 pt-5">
-            {date}
+          <p className="w-26 pt-5">
+            {dateTime}
           </p>
-          <p key={type} className="w-16 pt-5">
+          <p className="w-16 pt-5">
             {type}
           </p>
-          <p key={name} className="w-60 pt-5">
+          <p className="w-60 pt-5">
             {name}
           </p>
-          <p key={venue} className="w-80 pr-2 pt-5">
+          <p className="w-80 pr-2 pt-5">
             {venue}
           </p>
+          <div className="w-80 pr-2 pt-5">
+            {purchaseUrl ? (<Link href={purchaseUrl} target="_blank">Buy Ticket</Link>): null}
+          </div>
           <button>
             <Image
               onClick={() => deletePastEvent(id)}

@@ -2,32 +2,80 @@
 import { useState, useEffect } from 'react';
 import { EventContext } from "../../Components/Data/EventProvider";
 import PageBody from "../../Components/Elements/PageBody";
-import useEventFetchRequest from '../../Components/Data/useEventFetchRequest'
+import useLocalStorage from 'use-local-storage';
+
+async function fetchTicketPurchaseUrl (queryObject) {
+  const querySearchParams = new URLSearchParams({
+      apikey: 'O7mgiEMxAiHANcefL8qVSA6ab9XSrdZK',
+      ...queryObject
+  })
+
+  try {
+    const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events?${querySearchParams}`)
+    const data = await response.json();
+
+    return data?._embedded?.events?.[0]?.url ?? ''
+  } catch(e) {
+    console.log('Issue with fetching ticket purchase url')
+    return ''
+  }
+}
 
 
 export default function UpcomingEventsPage() {
 
-  const [keyword, setKeyword] = useState(localStorage.getItem('keyword') ?? '')
-  const [dateTime, setDateTime] = useState('')
-  const {events, setEvents} = useEventFetchRequest({ keyword })
+  const [keyword, setKeyword] = useLocalStorage('upcomingKeyword', '')
+  const [dateTime, setDateTime] = useLocalStorage('upcomingDateTime', '')
+  const [currentEventId, setCurrentEventId] = useLocalStorage('upcomingCurrentEventId', ''); // Default current event ID
 
-  const [currentEventId, setCurrentEventId] = useState(''); // Default current event ID
+  const [inputArea, setInputArea] = useState(false);
+  const [performerName, setPerformerName] = useState("");
+  const [venue, setVenue] = useState("");
 
-  // Save data to localStorage whenever events change
-  useEffect(() => {
-    localStorage.setItem("upcomingEvents", JSON.stringify(events)); // Store events data in localStorage
-  }, [events]); // Trigger this effect whenever the events state changes
 
-  // Save data to localStorage whenever currentEventId changes
-  useEffect(() => {
-    localStorage.setItem("upcomingCurrentEventId", JSON.stringify(currentEventId)); // Store currentEventId in localStorage
-  }, [currentEventId]); // Trigger this effect whenever the currentEventId state changes
+  const [events, setEvents] = useLocalStorage("upcomingEvents", []);
+
+  const addEvent = (newUpcomingEvent) => {
+    (async () => {
+      
+      let queryObject = {}
+
+      if (keyword) {
+        queryObject.keyword = keyword
+      }
+
+      if (dateTime) {
+        queryObject.startDateTime = `${dateTime}T00:00:00Z` 
+      }
+
+      const purchaseUrl = await fetchTicketPurchaseUrl(queryObject)
+
+      const newUpcomingEventWithPurchaseUrl = {
+        ...newUpcomingEvent,
+        purchaseUrl,
+      }
+      setEvents([...events, newUpcomingEventWithPurchaseUrl]) 
+    })()
+
+    
+  }
+
+
+
+
+
 
 
 
   return (
     <EventContext.Provider value={{
-      events, setEvents, currentEventId, setCurrentEventId, dateTime, setDateTime, setKeyword
+      events, addEvent, setEvents,
+      currentEventId, setCurrentEventId, 
+      dateTime, setDateTime, 
+      keyword, setKeyword,
+      inputArea, setInputArea,
+      performerName, setPerformerName,
+      venue, setVenue
     }}>
       <PageBody />
     </EventContext.Provider>
