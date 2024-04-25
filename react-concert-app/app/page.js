@@ -5,12 +5,8 @@ import LeftPastEventList from "./Components/Page-Layout/LeftPastEventList.jsx";
 import RightDisplayedPastEventDiv from "./Components/Elements/RightDisplayedPastEventDiv.jsx";
 import Footer from "./Components/Elements/Footer.jsx";
 import PastEventProvider from "./Components/Data/PastEventProvider.jsx";
-import pastEvents from "./Components/Page-Layout/pastEvents.js";
-import futureEvents from "./Components/Page-Layout/futureEvents.js";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import useEventFetchRequest from "./Components/Data/useEventFetchRequest.jsx";
-import UpcomingEventProvider from "./Components/Data/UpcomingEventProvider.jsx";
-import UpcomingEvents from "./Components/Elements/UpcomingEvents.jsx";
+
 
 export default function Home() {
 
@@ -45,8 +41,8 @@ const router = createBrowserRouter([
         element: <pastEvents />,
       },
       {
-        path: "future events",
-        element: <futureEvents />,
+        path: "upcoming events",
+        element: <upcomingEvents />,
       },
     ],
   },

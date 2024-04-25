@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import usePastEvents from "../Data/usePastEvents";
+import React, { useCallback, useState } from "react";
 import Image from "next/image";
 import trashDelete from "../Images/trashDelete.png";
 import renderEventDetails from "./RightDisplayedPastEventDiv";
+import useEvents from "../Data/useEvents";
 
 const PastEvents = () => {
   // Define state variables to hold your data using the custom hook
@@ -14,24 +14,24 @@ const PastEvents = () => {
 
     currentEventId, // ID of the currently selected event
     setCurrentEventId, // Function to update the currently selected event ID
-  } = usePastEvents(); // Destructure the values returned from the custom hook
+  } = useEvents(); // Destructure the values returned from the custom hook
 
-  const deletePastEvent = (id) => {
+  const deletePastEvent = useCallback((id) => {
     const updatedEvents = events.filter((event) => event.id !== id);
     setEvents(updatedEvents);
     if (currentEventId === id) {
       setCurrentEventId(updatedEvents[0]?.id || "");
     }
-  };
+  }, [events, setEvents, currentEventId]);
 
-  function handleEventClick(id) {
+  const handleEventClick = useCallback((id) => {
     // Update clickedPastEventId when an event is clicked
     console.log(currentEventId);
     console.log(events);
     setCurrentEventId(id);
 
     // renderEventDetails(currentEventId);
-  }
+  }, [currentEventId, events])
 
   // Render your component JSX and logic here
   return (
@@ -45,7 +45,7 @@ const PastEvents = () => {
       </div>
 
       {/* Map over the array of past event and render each event's information */}
-      {events.map(({ id, date, type, name, venue }) => (
+      {(events ?? []).map(({ id, date, type, name, venue }) => (
         <div
           id={id}
           key={id}

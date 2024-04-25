@@ -1,9 +1,12 @@
 "use client";
+
 import PageBody from "../../Components/Elements/PageBody.jsx";
 
-export default function PastEvents() {
+export default function UpcomingEventsPage() {
+
   return (
-    <PageBody />
+   <PageBody />
   );
 }
+
 
