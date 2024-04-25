@@ -1,21 +1,11 @@
 'use client'
 
-import { createContext, useEffect, useState } from "react"
-import {
-    currentEventId as testCurrentEventId,
-    events as testEvents,
-} from "./testData";
-import useEvents from "./useEvents";
-  
-export const EventContext = createContext()
+import { createContext } from "react"
 
-export default function EventProvider({ children }) {
+export const EventContext = createContext({
+    events: [],
+    setEvents: () => {},
 
-    const value = useEvents()
-
-    return (
-        <EventContext.Provider value={value}>
-            {children}
-        </EventContext.Provider>
-    )
-}
+    currentEventId: '',
+    setCurrentEventId: () => {}
+})

@@ -1,9 +1,8 @@
 "use client";
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useContext } from "react";
+import { EventContext } from "../Data/EventProvider";
 import Image from "next/image";
 import trashDelete from "../Images/trashDelete.png";
-import renderEventDetails from "./RightDisplayedPastEventDiv";
-import useEvents from "../Data/useEvents";
 
 const PastEvents = () => {
   // Define state variables to hold your data using the custom hook
@@ -14,7 +13,7 @@ const PastEvents = () => {
 
     currentEventId, // ID of the currently selected event
     setCurrentEventId, // Function to update the currently selected event ID
-  } = useEvents(); // Destructure the values returned from the custom hook
+  } = useContext(EventContext); // Destructure the values returned from the custom hook
 
   const deletePastEvent = useCallback((id) => {
     const updatedEvents = events.filter((event) => event.id !== id);

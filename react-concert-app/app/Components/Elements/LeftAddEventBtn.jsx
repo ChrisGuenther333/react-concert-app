@@ -1,16 +1,13 @@
 "use client";
 
 import React, { useEffect, useState, useCallback, useContext } from "react";
-import useEvents from "../Data/useEvents";
+import { EventContext } from "../Data/EventProvider";
 
 // Component for the left-side button to add events
 const LeftAddEventButton = () => {
   // Use custom hook to access past events data and functions
   // const { events, setEvents } = useEvents();
-  const {events, setEvents} = {
-    events: [],
-    setEvents: () => {}
-  }
+  const { events, setEvents } = useContext(EventContext)
 
   // State variables to manage input area visibility and input values
   const [inputArea, setInputArea] = useState(false);
