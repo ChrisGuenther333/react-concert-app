@@ -6,24 +6,28 @@ export const events =  [
   // Default events
   {
     id: getRandomId(),
-    date: "2024-04-01",
+    dateTime: "2024-04-01",
     type: "Music",
     name: "Cigarettes After Sex",
     venue: "Delta Center, SLC, UT",
+    rating: null,
   },
   {
     id: getRandomId(),
-    date: "2024-04-10",
+    dateTime: "2024-04-10",
     type: "Sports",
     name: "Real Salt Lake",
     venue: "America First Field, Sandy, UT",
+    rating: null,
+
   },
   {
     id: getRandomId(),
-    date: "2024-04-07",
+    dateTime: "2024-04-07",
     type: "Music",
     name: "Olivia Rodrigo",
     venue: "Allegiant Stadium, Las Vegas, NV",
+    rating: null,
   },
 ];
 
