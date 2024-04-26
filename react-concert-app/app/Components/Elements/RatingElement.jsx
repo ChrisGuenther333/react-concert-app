@@ -1,26 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { FaStar } from "react-icons/fa";
-import usePastEvents from "../Data/usePastEvents";
-import { currentEventId } from "../Data/testData";
 
 const EventRating = () => {
-  const [hoverRating, setHoverRating] = useState(0);
-  // Define state variables to hold your data using the custom hook
-  const {
-    events, // Array of past events
-    setEvents, // Function to update past events data
-
-    currentEventId, // ID of the currently selected event
-    setCurrentEventId, // Function to update the currently selected event ID
-  } = usePastEvents(); // Destructure the values returned from the custom hook
-
   const [rating, setRating] = useState(() => {
-    // Retrieve rating from local storage for the specific event
-    const storedRating = localStorage.getItem(`eventRating_${currentEventId}`);
+    // Retrieve rating from local storage on component mount
+    const storedRating = localStorage.getItem("eventRating");
     return storedRating ? parseInt(storedRating) : 0;
   });
-
-
+  const [hoverRating, setHoverRating] = useState(0);
 
   const handleMouseEnter = (index) => {
     setHoverRating(index);
@@ -36,9 +23,8 @@ const EventRating = () => {
 
   useEffect(() => {
     // Save rating to local storage whenever it changes
-    localStorage.setItem(`eventRating_${currentEventId}`, rating.toString());
-  }, [rating, currentEventId]);
-
+    localStorage.setItem("eventRating", rating.toString());
+  }, [rating]);
 
   return (
     <div>
@@ -50,7 +36,7 @@ const EventRating = () => {
             <input
               className="hidden"
               type="radio"
-              name={`rating_${currentEventId}`}
+              name="rating"
               value={starRating}
               onClick={() => handleClick(starRating)}
             />
