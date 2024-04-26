@@ -1,19 +1,23 @@
 "use client";
 
 import React, { useEffect, useState, useCallback, useContext } from "react";
-import usePastEvents from "../Data/usePastEvents";
-import { UpcomingEventContext } from "../Data/UpcomingEventProvider";
+import { EventContext } from "../Data/EventProvider";
 
 // Component for the left-side button to add events
 const LeftAddEventButton = () => {
-  // Use custom hook to access past events data and functions
-  const { events, setEvents } = usePastEvents();
+
+  const { 
+    events, addEvent, 
+    currentEventId, setCurrentEventId, 
+    dateTime, setDateTime,
+    inputArea, setInputArea,
+    keyword, setKeyword,
+    performerName, setPerformerName,
+    venue, setVenue
+  } = useContext(EventContext)
 
   // State variables to manage input area visibility and input values
-  const [inputArea, setInputArea] = useState(false);
-  const [date, setDate] = useState("");
-  const [performerName, setPerformerName] = useState("");
-  const [venue, setVenue] = useState("");
+
 
   // Toggle input area visibility
   const handleClick = () => {
@@ -26,10 +30,10 @@ const LeftAddEventButton = () => {
     const type = document.getElementById("typeSelect").value;
 
     // Create a new event object
-    const newEvent = { id, date, type, name: performerName, venue };
+    const newEvent = { id, dateTime, type, name: performerName, venue };
 
     // Update events state with the new event
-    setEvents([...events, newEvent]);
+    addEvent(newEvent);
 
     // Log the newly added event
     console.log("New event added:", newEvent);
@@ -38,15 +42,12 @@ const LeftAddEventButton = () => {
     setInputArea(false);
 
     // Clear input fields
-    setDate("");
+    setDateTime("");
     setPerformerName("");
     setVenue("");
   };
 
-  // Get today's date as a string
-  const today = new Date();
-  today.setDate(today.getDate() - 1);
-  const todayString = today.toISOString().split("T")[0];
+  const todayString = '';
 
   return (
     <div>
@@ -65,8 +66,8 @@ const LeftAddEventButton = () => {
           <input
             type="date"
             max={todayString}
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={dateTime}
+            onChange={(e) => setDateTime(e.target.value)}
             className="flex items-center bg-white border border-gray-300 rounded-lg shadow-mdh-10 px-6 py-2 text-sm font-medium text-gray-800 hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500 my-1 w-48"
           />
           {/* Type dropdown */}

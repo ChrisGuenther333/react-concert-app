@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
-import usePastEvents from "../Data/usePastEvents";
+import useEvents from "../Data/useEvents";
 import Image from "next/image";
 import trashDelete from "../Images/trashDelete.png";
 import renderEventDetails from "./RightDisplayedPastEventDiv";

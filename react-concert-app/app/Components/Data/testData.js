@@ -2,7 +2,7 @@
 const getRandomId = () => Math.floor(Math.random() * 10000);
 
 // Retrieve events from localStorage, or use default events if localStorage is empty
-export const events = JSON.parse(localStorage.getItem("events") ?? '[]') || [
+export const events =  [
   // Default events
   {
     id: getRandomId(),
