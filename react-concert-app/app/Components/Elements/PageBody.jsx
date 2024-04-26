@@ -7,23 +7,22 @@ import Footer from "./Footer"
 
 
 export default function PageBody() {
-    return (
-       
-            <main>
-            <div className="h-svh">
-            <nav>
-                <NavBar />
-            </nav>
-    
-            <div className="flex h-full">
-                <LeftPastEventList />
-                <RightDisplayedPastEventDiv />
+    return (       
+        <main>
+            <div className="min-h-screen flex flex-col">
+                <nav>
+                    <NavBar />
+                </nav>
+
+                <div className="flex flex-grow">
+                    <LeftPastEventList />
+                    <RightDisplayedPastEventDiv />
+                </div>
+                <footer>
+                    <Footer />
+                </footer>
             </div>
-            <footer>
-                <Footer />
-            </footer>
-            </div>
-            </main>
+        </main>
      
     )
 }
