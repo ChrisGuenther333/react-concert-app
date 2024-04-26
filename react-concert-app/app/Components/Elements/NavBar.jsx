@@ -8,10 +8,10 @@ export default function NavBar() {
   return (
     <main>
       <nav className="bg-gray-800 flex h-16 items-center mx-auto px-8">
-        <Link href="/">
+        <Link className="flex items-center decoration-0" href="/">
           <Image src={logo} alt="logo" />
+        <span className="text-white ms-3 font-bold hover:text-slate-500">Event Tracker</span>
         </Link>
-        <span className="text-white ms-3 font-bold">Event Tracker</span>
 
         <button>
           <Link href="/pages/pastEvents">

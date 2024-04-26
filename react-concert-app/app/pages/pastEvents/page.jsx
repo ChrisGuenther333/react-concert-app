@@ -2,7 +2,7 @@
 
 import { events as testEvents, currentEventId as testCurrentEventId} from '../../Components/Data/testData'
 import { useState, useEffect } from 'react'
-import PageBody from "../../Components/Elements/PageBody";
+import PastEventsPageBody from "../../Components/Elements/PastEventsPageBody";
 import { EventContext } from "../../Components/Data/EventProvider";
 import useLocalStorage from 'use-local-storage';
 
@@ -33,7 +33,7 @@ export default function PastEvents() {
       performerName, setPerformerName,
       venue, setVenue
     }}>
-      <PageBody />
+      <PastEventsPageBody />
     </EventContext.Provider>
   );
 }

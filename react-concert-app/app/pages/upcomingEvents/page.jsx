@@ -1,8 +1,8 @@
 "use client";
 import { useState, useEffect } from 'react';
 import { EventContext } from "../../Components/Data/EventProvider";
-import PageBody from "../../Components/Elements/PageBody";
 import useLocalStorage from 'use-local-storage';
+import UpcomingEventsPageBody from '../../Components/Elements/UpcomingEventsPageBody';
 
 async function fetchTicketPurchaseUrl (queryObject) {
   const querySearchParams = new URLSearchParams({
@@ -77,7 +77,7 @@ export default function UpcomingEventsPage() {
       performerName, setPerformerName,
       venue, setVenue
     }}>
-      <PageBody />
+      <UpcomingEventsPageBody />
     </EventContext.Provider>
   );
 }

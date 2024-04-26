@@ -6,7 +6,7 @@ import RightDisplayedPastEventDiv from "./RightDisplayedPastEventDiv"
 import Footer from "./Footer"
 
 
-export default function PageBody() {
+export default function PastEventsPageBody() {
     return (       
         <main>
             <div className="min-h-screen flex flex-col">

@@ -14,9 +14,10 @@ function EventDetails({ date, name, venue }) {
             {date}
           </p>
           {/* <p className="text-lg"> {event.type}</p> */}
-          <p key={name} className="text-3xl m-3">
+          <p key={name} className="text-3xl m-1">
             {name}
           </p>
+          <div className="border m-2"></div>
           <p key={venue} className="text-xl">
             {venue}
           </p>

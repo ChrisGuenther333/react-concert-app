@@ -68,7 +68,7 @@ const PastEvents = () => {
             {venue}
           </p>
           <div className="w-80 pr-2 pt-5">
-            {purchaseUrl ? (<Link href={purchaseUrl} target="_blank">Buy Ticket</Link>): null}
+            {purchaseUrl ? (<Link href={purchaseUrl} target="_blank" className="px-4 py-2 border flex justify-center border-slate-500 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-200 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 bg-slate-800 w-48 ">Buy Ticket</Link>): null}
           </div>
           <button>
             <Image
