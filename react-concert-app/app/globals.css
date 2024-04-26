@@ -24,11 +24,6 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    color: white
-}
-
-button {
-  color: white;
 }
 
 @layer utilities {

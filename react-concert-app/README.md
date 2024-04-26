@@ -1,9 +1,3 @@
 # React-Concert-App
 
-This application was made with React, Tailwind, and next.js
-
-It utilizes Ticketmaster's API: https://developer.ticketmaster.com/products-and-docs/apis/getting-started/
-
-Additional packages that were used in this project:
--react-icons
--debouncer
+Figma link: https://www.figma.com/file/YmEpikw7w6ewEULIDXj4f0/Concert-log-ideas?type=whiteboard&node-id=0%3A1&t=JRuBzGZl8PfoKofH-1

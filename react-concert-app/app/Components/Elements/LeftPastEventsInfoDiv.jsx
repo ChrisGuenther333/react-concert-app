@@ -1,9 +1,9 @@
 "use client";
-import React, { useCallback, useContext } from "react";
-import { EventContext } from "../Data/EventProvider";
+import React, { useEffect, useState } from "react";
+import usePastEvents from "../Data/usePastEvents";
 import Image from "next/image";
 import trashDelete from "../Images/trashDelete.png";
-import Link from 'next/link'
+import renderEventDetails from "./RightDisplayedPastEventDiv";
 
 const PastEvents = () => {
   // Define state variables to hold your data using the custom hook
@@ -14,24 +14,24 @@ const PastEvents = () => {
 
     currentEventId, // ID of the currently selected event
     setCurrentEventId, // Function to update the currently selected event ID
-  } = useContext(EventContext); // Destructure the values returned from the custom hook
+  } = usePastEvents(); // Destructure the values returned from the custom hook
 
-  const deletePastEvent = useCallback((id) => {
+  const deletePastEvent = (id) => {
     const updatedEvents = events.filter((event) => event.id !== id);
     setEvents(updatedEvents);
     if (currentEventId === id) {
       setCurrentEventId(updatedEvents[0]?.id || "");
     }
-  }, [events, setEvents, currentEventId]);
+  };
 
-  const handleEventClick = useCallback((id) => {
+  function handleEventClick(id) {
     // Update clickedPastEventId when an event is clicked
     console.log(currentEventId);
     console.log(events);
     setCurrentEventId(id);
 
     // renderEventDetails(currentEventId);
-  }, [currentEventId, events])
+  }
 
   // Render your component JSX and logic here
   return (
@@ -42,34 +42,28 @@ const PastEvents = () => {
         <h2 className="ml-14 px-1">Type</h2>
         <h2 className="ml-10 px-1">Name</h2>
         <h2 className="ml-[12.75rem] pr-2">Venue</h2>
-        <h2 className="ml-[12.75rem] pr-1">
-          {window?.location?.pathname?.includes('upcomingEvents') ? 'Ticket Link': ''}
-        </h2>
       </div>
 
       {/* Map over the array of past event and render each event's information */}
-      {(events ?? []).map(({ id, dateTime, type, name, venue, purchaseUrl }) => (
+      {events.map(({ id, date, type, name, venue }) => (
         <div
           id={id}
           key={id}
           className="flex justify-around text-left mx-5"
           onClick={() => handleEventClick(id)}
         >
-          <p className="w-26 pt-5">
-            {dateTime}
+          <p key={date} className="w-26 pt-5">
+            {date}
           </p>
-          <p className="w-16 pt-5">
+          <p key={type} className="w-16 pt-5">
             {type}
           </p>
-          <p className="w-60 pt-5">
+          <p key={name} className="w-60 pt-5">
             {name}
           </p>
-          <p className="w-80 pr-2 pt-5">
+          <p key={venue} className="w-80 pr-2 pt-5">
             {venue}
           </p>
-          <div className="w-80 pr-2 pt-5">
-            {purchaseUrl ? (<Link href={purchaseUrl} target="_blank" className="px-4 py-2 border flex justify-center border-slate-500 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-200 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 bg-slate-800 w-48 ">Buy Ticket</Link>): null}
-          </div>
           <button>
             <Image
               onClick={() => deletePastEvent(id)}
