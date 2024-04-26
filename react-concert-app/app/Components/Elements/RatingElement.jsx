@@ -1,26 +1,35 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FaStar } from "react-icons/fa";
-import usePastEvents from "../Data/usePastEvents";
-import { currentEventId } from "../Data/testData";
+// import usePastEvents from "../Data/usePastEvents";
+import { EventContext } from "../Data/EventProvider";
+
+function getInitialRating({ events, currentEventId }) {
+  const currentEvent = getCurrentEvent({ events, currentEventId })
+
+  return currentEvent?.rating ?? 0
+}
+
+function getCurrentEvent({ events, currentEventId }) {
+  return  (events ?? [])?.find(eventItem => eventItem.id === currentEventId)
+}
+
 
 const EventRating = () => {
-  const [hoverRating, setHoverRating] = useState(0);
-  // Define state variables to hold your data using the custom hook
+
+  // // Define state variables to hold your data using the custom hook
   const {
     events, // Array of past events
     setEvents, // Function to update past events data
 
     currentEventId, // ID of the currently selected event
     setCurrentEventId, // Function to update the currently selected event ID
-  } = usePastEvents(); // Destructure the values returned from the custom hook
+  } = useContext(EventContext); // Destructure the values returned from the custom hook
 
-  const [rating, setRating] = useState(() => {
-    // Retrieve rating from local storage for the specific event
-    const storedRating = localStorage.getItem(`eventRating_${currentEventId}`);
-    return storedRating ? parseInt(storedRating) : 0;
-  });
+  const currentEvent = getCurrentEvent({ events, currentEventId })
 
+  const [rating, setRating] = useState(getInitialRating(currentEvent?.rating ?? 0));
 
+  const [hoverRating, setHoverRating] = useState(getInitialRating(currentEvent?.rating ?? 0));
 
   const handleMouseEnter = (index) => {
     setHoverRating(index);
@@ -30,8 +39,14 @@ const EventRating = () => {
     setHoverRating(0);
   };
 
-  const handleClick = (index) => {
-    setRating(index);
+
+
+  const handleClick = (starRating) => {
+
+    currentEvent.rating = starRating
+    setEvents([...events])
+
+    setRating(starRating);
   };
 
   useEffect(() => {
@@ -39,6 +54,11 @@ const EventRating = () => {
     localStorage.setItem(`eventRating_${currentEventId}`, rating.toString());
   }, [rating, currentEventId]);
 
+  useEffect(() => {
+    const initialRating = getInitialRating({ events, currentEventId })
+    setRating(initialRating)
+    setHoverRating(initialRating)
+  }, [currentEventId, events])
 
   return (
     <div>

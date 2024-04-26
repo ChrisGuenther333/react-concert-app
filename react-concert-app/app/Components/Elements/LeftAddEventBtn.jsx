@@ -30,7 +30,7 @@ const LeftAddEventButton = () => {
     const type = document.getElementById("typeSelect").value;
 
     // Create a new event object
-    const newEvent = { id, dateTime, type, name: performerName, venue };
+    const newEvent = { id, dateTime, type, name: performerName, venue, rating: null };
 
     // Update events state with the new event
     addEvent(newEvent);
