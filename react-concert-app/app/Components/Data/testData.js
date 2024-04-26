@@ -32,7 +32,5 @@ export const events = JSON.parse(localStorage.getItem("events") ?? '[]') || [
 ];
 
 // Retrieve currentEventId from localStorage, or set it to the first event's ID if localStorage is empty
-export const currentEventId =
-  JSON.parse(localStorage.getItem("currentEventId") || null) ?? // Try to parse currentEventId from localStorage
-  events?.[0]?.id ?? // If currentEventId is not found in localStorage, use the ID of the first event
-  ""; // If there are no events, set currentEventId to an empty string
+export const currentEventId =events?.[0]?.id
+
