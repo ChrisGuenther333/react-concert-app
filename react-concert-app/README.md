@@ -1,3 +1,7 @@
 # React-Concert-App
 
-Figma link: https://www.figma.com/file/YmEpikw7w6ewEULIDXj4f0/Concert-log-ideas?type=whiteboard&node-id=0%3A1&t=JRuBzGZl8PfoKofH-1
+This application was made with React, Tailwind, and next.js
+
+Additional packages that were used in this project:
+-react-icons
+-debouncer
