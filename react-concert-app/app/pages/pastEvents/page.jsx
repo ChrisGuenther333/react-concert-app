@@ -1,28 +1,40 @@
 "use client";
-import NavBar from "../../Components/Elements/NavBar.jsx";
-import LeftPastEventList from "../../Components/Elements/LeftPastEventList.jsx";
-import RightDisplayedPastEventDiv from "../../Components/Elements/RightDisplayedPastEventDiv.jsx";
-import Footer from "../../Components/Elements/Footer.jsx";
-import PastEventProvider from "../../Components/Data/PastEventProvider.jsx";
+
+import { events as testEvents, currentEventId as testCurrentEventId} from '../../Components/Data/testData'
+import { useState, useEffect } from 'react'
+import PastEventsPageBody from "../../Components/Elements/PastEventsPageBody";
+import { EventContext } from "../../Components/Data/EventProvider";
+import useLocalStorage from 'use-local-storage';
+
+export default function PastEvents() {
+  const [events, setEvents] = useLocalStorage('previousEvents', testEvents); // Default events data
+  const [currentEventId, setCurrentEventId] = useLocalStorage('previousCurrentEventId', testCurrentEventId); // Default current event ID
+
+  const [keyword, setKeyword] = useLocalStorage('previousEventsKeyword', '')
+  const [dateTime, setDateTime] = useState('')
+  const [inputArea, setInputArea] = useState(false);
+  const [performerName, setPerformerName] = useState("");
+  const [venue, setVenue] = useState("");
+
+  const addEvent = (newPastEvent) => {
+    setEvents([...events, newPastEvent])
+  }
 
 
-export default function pastEvents() {
+
+
   return (
-    <PastEventProvider>
-      <div className="min-h-screen flex flex-col">
-        <nav>
-          <NavBar />
-        </nav>
-
-        <div className="flex flex-grow">
-          <LeftPastEventList />
-          <RightDisplayedPastEventDiv />
-        </div>
-        <footer>
-          <Footer />
-        </footer>
-      </div>
-    </PastEventProvider>
+    <EventContext.Provider value={{
+      events, addEvent, setEvents,
+      currentEventId, setCurrentEventId, 
+      dateTime, setDateTime, 
+      keyword, setKeyword,
+      inputArea, setInputArea,
+      performerName, setPerformerName,
+      venue, setVenue
+    }}>
+      <PastEventsPageBody />
+    </EventContext.Provider>
   );
 }
 
